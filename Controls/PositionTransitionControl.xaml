@@ -1,0 +1,45 @@
+<UserControl x:Class="WindowsNotifier.Controls.PositionTransitionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="400">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="24" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Cabecera -->
+        <TextBlock x:Name="SymbolText" Text="SYMBOL" FontWeight="Bold" FontSize="14" Foreground="#FFFFFF" Grid.Row="0" Margin="0,0,0,5"/>
+
+        <!-- Tamaños numéricos -->
+        <Grid Grid.Row="1" Margin="0,0,0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="BeforeSizeText" Text="Antes: 0.0" Foreground="#AAAAAA" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="TransitionText" Text="➔" Foreground="#888888" Grid.Column="1" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="AfterSizeText" Text="Después: 0.0" Foreground="#00FFCC" FontWeight="SemiBold" Grid.Column="2" HorizontalAlignment="Right"/>
+        </Grid>
+
+        <!-- Barra Visual de Progreso (Acelerada por GPU) -->
+        <Border Grid.Row="2" Background="#222222" CornerRadius="5" ClipToBounds="True">
+            <Grid>
+                <!-- Barra de posición anterior -->
+                <Rectangle x:Name="BeforeBar" Fill="#44FFFFFF" HorizontalAlignment="Left" Width="0" Height="24"/>
+                <!-- Barra de posición posterior (con color según si aumenta/disminuye) -->
+                <Rectangle x:Name="AfterBar" Fill="#00FFCC" HorizontalAlignment="Left" Width="0" Height="24"/>
+            </Grid>
+        </Border>
+
+        <!-- Detalle Flotante Restante -->
+        <TextBlock x:Name="FloatingText" Text="Posición Flotante Restante: 0.0" Foreground="#FFCC00" FontSize="11" Margin="0,5,0,0" Grid.Row="3" HorizontalAlignment="Center"/>
+    </Grid>
+</UserControl>

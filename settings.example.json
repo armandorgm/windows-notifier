@@ -1,0 +1,5 @@
+{
+  "DbType": "PostgreSQL",
+  "ConnectionString": "Host=localhost;Database=apibinance;Username=postgres;Password=YOUR_PASSWORD;Port=5432",
+  "Port": 50005
+}
